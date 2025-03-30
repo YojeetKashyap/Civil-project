@@ -1,0 +1,66 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<body style="background-image: url('/static/civil_3.jpg'); background-size: cover; background-position: center; opacity:5;">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <img src="https://www.clarisdesignbuild.com/wp-content/uploads/2024/08/5-Steps-to-Conduct-a-Successful-Construction-Excavation-Project.jpg" class="card-img-top" alt="Excavation of Site">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">What is Excavation of Site?</h4>
+                        <p class="card-text">
+                            Excavation is the process of removing earth, soil, and rock to create space for construction foundations, pipelines, and landscaping.
+                            It is an essential step in site preparation.
+                        </p>
+                        <h5>Types of Excavation:</h5>
+                        <ul>
+                            <li><strong>Topsoil Excavation:</strong> Removal of surface soil.</li>
+                            <li><strong>Earth Excavation:</strong> Digging below topsoil for foundations.</li>
+                            <li><strong>Rock Excavation:</strong> Removing rock layers.</li>
+                            <li><strong>Muck Excavation:</strong> Clearing wet, muddy soil.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="container p-4 bg-white rounded shadow-lg" style="max-width: 400px;">
+        <h2 class="text-center mb-4">Excavation Cost Prediction</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="excavation_on_site" class="form-label">Excavation on Site (m³):</label>
+                <input type="text" name="Excavation_on_site" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="length_of_excavation" class="form-label">Length of Excavation (m):</label>
+                <input type="text" name="length_of_excavation" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="width_of_excavation" class="form-label">Width of Excavation (m):</label>
+                <input type="text" name="width_of_excavation" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="depth_of_excavation" class="form-label">Depth of Excavation (m):</label>
+                <input type="text" name="depth_of_excavation" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Predict</button>
+        </form>
+
+        {% if labour_cost is not none %}
+            <div class="alert alert-success mt-4">
+                <h4 class="text-center">Predicted Costs</h4>
+                <p><strong>Labour Cost:</strong> ₹{{ labour_cost|round(2) }}</p>
+                <p><strong>Material Cost:</strong> ₹{{ material_cost|round(2) }}</p>
+                <p><strong>Transportation Cost:</strong> ₹{{ transport_cost|round(2) }}</p>
+                <p><strong>Water Cost:</strong> ₹{{ water_cost|round(2) }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+
+{% endblock %}

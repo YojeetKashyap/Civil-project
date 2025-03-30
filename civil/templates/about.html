@@ -1,0 +1,80 @@
+{% extends "home.html" %} 
+
+
+{% block content %}
+<body>
+
+    <!-- Hero Section -->
+    <section class="bg-primary text-white text-center py-5 bg-dark">
+        <div class="container ">
+            <h1 class="display-4 fw-bold ">About Us</h1>
+            <p class="lead">Accurate cost predictions for smarter, budget-friendly construction decisions.</p>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="container my-5" >
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold">Our Mission</h2>
+                <p class="text-muted fst-italic">
+                    Empowering construction professionals with accurate, data-driven cost predictions for site preparation, excavation, foundation work, and structural components-ensuring efficiency, transparency, and budget-friendly decision-making in every project.
+                </p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://source.unsplash.com/500x300/?team,work" class="img-fluid rounded shadow" alt="Mission Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Meet Our Team</h2>
+            <p class="text-muted mb-4">Our dedicated professionals work hard to make our vision a reality.</p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0">
+                        <img src="/static/dibin.jpg" class="card-img-top" style="height: 400px;" alt="Team Member">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Dibin Dinesan</h5>
+                            <p class="card-text text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0">
+                        <img src="/static/ayush.png" class="card-img-top" style="height: 400px;" alt="Team Member">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Ayush Soni</h5>
+                            <p class="card-text text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0">
+                        <img src="/static/soham.JPG" class="card-img-top" style="height: 400px;" alt="Team Member">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Soham Sahu</h5>
+                            <p class="card-text text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="container my-5 text-center">
+        <h2 class="fw-bold">Get in Touch</h2>
+        <p class="text-muted">Have questions? We’d love to hear from you.</p>
+        <a href="mailto:" class="btn btn-primary">Contact Us</a>
+    </section>
+
+    
+</body>
+
+{% endblock %}

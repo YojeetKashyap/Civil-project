@@ -1,0 +1,63 @@
+{% extends "home.html" %}
+
+{% block content %}
+<body  style="background-image: url('/static/civil_3.jpg'); background-size: cover; background-position: center; opacity:5;">
+    <div class="container my-4">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-lg">
+                        <img src="https://thumbs.dreamstime.com/b/clear-copy-space-image-showcasing-construction-cleaning-service-action-photo-features-vacuum-cleaner-effectively-removing-329942340.jpg" class="card-img-top" alt="Site Cleaning">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">What is Site Cleaning?</h4>
+                            <p class="card-text">
+                                Site cleaning is the process of preparing land for construction by removing unwanted materials, debris, and vegetation.
+                                It ensures a safe and efficient working environment before excavation and foundation work begins.
+                            </p>
+                            <h5>Steps in Site Cleaning:</h5>
+                            <ul>
+                                <li><strong>Clearing Vegetation:</strong> Removing trees, bushes, and plants.</li>
+                                <li><strong>Debris Removal:</strong> Cleaning waste materials and rubble.</li>
+                                <li><strong>Surface Leveling:</strong> Flattening uneven ground.</li>
+                                <li><strong>Soil Testing & Preparation:</strong> Ensuring the land is ready for construction.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="container p-4 bg-white rounded shadow-lg" style="max-width: 400px;">
+            <h2 class="text-center mb-4">Site Cleaning Cost Prediction</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="area" class="form-label">Enter Area (sq.m)</label>
+                    <input type="text" name="area" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="length" class="form-label">Enter Lenght of Site (m)</label>
+                    <input type="text" name="length_of_site" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="width" class="form-label">Enter Width of Site(m):</label>
+                    <input type="text" name="width" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Predict</button>
+            </form>
+    
+            {% if labour_cost is not none %}
+                <div class="alert alert-success mt-4">
+                    <h4 class="text-center">Predicted Costs</h4>
+                    <p><strong>Labour Cost:</strong> ₹ {{ labour_cost|round(2) }}</p>
+                    <p><strong>Equipment Cost:</strong> ₹ {{ equipment_cost|round(2) }}</p>
+                    <p><strong>Total Cost:</strong> ₹ {{ (labour_cost+equipment_cost)|round(2) }}</p>
+                    
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "home.html"%}
+
+{% block content %}
+<body style="background-image: url('/static/civil_3.jpg'); background-size: cover; background-position: center; opacity:5;">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <img src="https://structville.com/wp-content/uploads/2021/05/precast-column.jpg" class="card-img-top" alt="Pedestal Columns">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">What are Pedestal Columns?</h4>
+                        <p class="card-text">
+                            Pedestal columns are short, reinforced concrete structures that provide additional support to heavy loads.
+                            They help in transferring loads efficiently to the foundation and enhance the overall stability of buildings and industrial structures.
+                        </p>
+                        <h5>Purpose of Pedestal Columns:</h5>
+                        <ul>
+                            <li><strong>Distributes Load Efficiently:</strong> Transfers heavy loads to the foundation.</li>
+                            <li><strong>Prevents Structural Failure:</strong> Reduces stress on the main columns.</li>
+                            <li><strong>Enhances Stability:</strong> Provides extra reinforcement in load-bearing areas.</li>
+                            <li><strong>Supports Machinery & Heavy Structures:</strong> Used in industrial applications.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="container p-4 bg-white rounded shadow-lg" style="max-width: 400px;">
+        <h2 class="text-center mb-4">Pedestrial Columns Cost Prediction</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="length" class="form-label">Length (m):</label>
+                <input type="text" name="length" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="width" class="form-label">Width (m):</label>
+                <input type="text" name="width" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Height (m):</label>
+                <input type="text" name="height" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Predict</button>
+        </form>
+
+        {% if material_cost is not none %}
+            <div class="alert alert-success mt-4">
+                <h4 class="text-center">Predicted Costs</h4>
+                <p><strong>Material Cost:</strong> ₹ {{ material_cost|round(2) }}</p>
+                <p><strong>Labour Cost:</strong> ₹ {{ labour_cost|round(2) }}</p>
+                <p><strong>Water Cost:</strong> ₹ {{ water_cost|round(2) }}</p>
+                <p><strong>Total Cost:</strong> ₹ {{ (labour_cost+material_cost+water_cost)|round(2) }}</p>
+
+            </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

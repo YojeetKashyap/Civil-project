@@ -1,0 +1,60 @@
+{% extends "home.html"%}
+
+{% block content %}
+<body style="background-image: url('/static/civil_3.jpg'); background-size: cover; background-position: center; opacity:5;">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <img src="https://www.ultratechcement.com/content/ultratechcement/in/en/home/for-homebuilders/home-building-explained-single/descriptive-articles/what-is-rcc-footing/_jcr_content/root/container/container_2072089177/teaser_copy_86651871_295209064.coreimg.jpeg/1711527041010/rcc-footing-3.jpeg" class="card-img-top" alt="Footing Concrete">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">What is Footing Concrete?</h4>
+                        <p class="card-text">
+                            Footing concrete is a structural base used to distribute a building’s weight evenly over the ground, preventing settlement and ensuring stability.
+                            It is a crucial component in foundation construction.
+                        </p>
+                        <h5>Types of Footings:</h5>
+                        <ul>
+                            <li><strong>Isolated Footing:</strong> Supports individual columns.</li>
+                            <li><strong>Combined Footing:</strong> Supports multiple columns.</li>
+                            <li><strong>Strip Footing:</strong> Supports continuous walls.</li>
+                            <li><strong>Raft (Mat) Footing:</strong> Covers the entire building area.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="container p-4 bg-white rounded shadow-lg" style="max-width: 400px;">
+        <h2 class="text-center mb-4">Footing Concrete Cost Prediction</h2>
+        <form method="POST" >
+            <div class="mb-3">
+                <label for="length" class="form-label">Length (m):</label>
+                <input type="text" name="length" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="width" class="form-label">Width (m):</label>
+                <input type="text" name="width" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Height (m):</label>
+                <input type="text" name="height" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Predict</button>
+        </form>
+
+        {% if labour_cost is not none %}
+            <div class="alert alert-success mt-4">
+                <h4 class="text-center">Predicted Costs</h4>
+                <p><strong>Labour Cost:</strong> ₹ {{ labour_cost|round(2) }}</p>
+                <p><strong>Material Cost:</strong> ₹ {{ material_cost|round(2) }}</p>
+                <p><strong>Water Cost:</strong> ₹ {{ water_cost|round(2) }}</p>
+                <p><strong>Total Cost:</strong> ₹ {{ (water_cost+material_cost+labour_cost)|round(2) }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

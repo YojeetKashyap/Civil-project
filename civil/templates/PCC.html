@@ -1,0 +1,62 @@
+{% extends "home.html"%}
+
+{% block content %}
+<body style="background-image: url('/static/civil_3.jpg'); background-size: cover; background-position: center; opacity:5;">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <img src="https://dailycivil.com/wp-content/uploads/2021/10/pcc.webp" class="card-img-top" alt="Plain Cement Concrete (PCC)">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">What is Plain Cement Concrete (PCC)?</h4>
+                        <p class="card-text">
+                            Plain Cement Concrete (PCC) is a mixture of cement, sand, aggregate, and water, used to provide a smooth and rigid base for foundations.
+                            It acts as a protective layer and distributes loads evenly to prevent settlement and cracks.
+                        </p>
+                        <h5>Purpose of PCC:</h5>
+                        <ul>
+                            <li><strong>Protects Reinforcement:</strong> Prevents steel from corrosion.</li>
+                            <li><strong>Provides a Strong Base:</strong> Offers a stable surface for structures.</li>
+                            <li><strong>Distributes Load Evenly:</strong> Minimizes settlement and structural cracks.</li>
+                            <li><strong>Improves Durability:</strong> Enhances the lifespan of the construction.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="container p-4 bg-white rounded shadow-lg" style="max-width: 400px;">
+        <h2 class="text-center mb-4">PCC Cost Prediction</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="length" class="form-label">Length (m):</label>
+                <input type="text" name="length" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="width" class="form-label">Width (m):</label>
+                <input type="text" name="width" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Height (m):</label>
+                <input type="text" name="height" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Predict</button>
+        </form>
+
+        {% if material_cost is not none %}
+            <div class="alert alert-success mt-4">
+                <h4 class="text-center">Predicted Costs</h4>
+                <p><strong>Material Cost:</strong> ₹ {{ material_cost|round(2) }}</p>
+                <p><strong>Transportation Cost:</strong> ₹ {{ transport_cost|round(2) }}</p>
+                <p><strong>Labour Cost:</strong> ₹ {{ labour_cost|round(2) }}</p>
+                <p><strong>Water Cost:</strong> ₹ {{ water_cost|round(2) }}</p>
+                <p><strong>Total Cost:</strong> ₹ {{ (labour_cost+material_cost +transport_cost+water_cost)|round(2) }}</p>
+
+            </div>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

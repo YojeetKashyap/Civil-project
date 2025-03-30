@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <style>
+        .hero {
+            background-image: url("https://images.pexels.com/photos/262367/pexels-photo-262367.jpeg"); /* Use relative path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 10);
+        }
+
+        h1{
+            font-size : 60px;
+        }
+
+        .card{
+            background-color:rgba(62, 57, 57, 0.4);
+            color:white;
+            font-size:25px;
+        }
+        .card:hover {
+            color:black;
+            background-color: #fee440; /* Light gray on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: 0.3s;
+        }
+
+        #services{
+            background: url('https://img.freepik.com/free-photo/construction-workers-sunset_53876-138180.jpg?t=st=1743150881~exp=1743154481~hmac=831dfea0e40937d3597915fd9607192cf7baa263af0532d45b9ec096c5dd9eb0&w=1060') no-repeat center center;
+            background-size: cover;
+        }
+
+        body{
+            background-color:black;
+        }
+
+        
+        
+    </style>
+<body>
+    <header class="hero text-center">
+        <div>
+            <h1>Welcome to MyWebsite</h1>
+            <p>Your one-stop solution for amazing experiences</p>
+            <a href="#about" class="btn btn-primary">Learn More</a>
+        </div>
+    </header>
+    
+    <section id="about" class="container text-center py-5">
+        <h2 onclick="window.location.href='about';" style="cursor: pointer; color:white;">About Us</h2>
+        <p style="color:white;">We are committed to delivering excellence and innovation in everything we do.</p>
+    </section>
+    
+    <section id="services" class="bg-light py-5 text-center">
+        <div class="container">
+            <h2 style="color:white ; font-size:50px ;">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4" >
+                    <div class="card p-3 my-3" onclick="window.location.href='site';" style="cursor: pointer;">
+                        <h5 >Service 1</h5>
+                        <p>Site Cleaning Price Prediction.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 my-3" onclick="window.location.href='Excavation';" style="cursor: pointer;">
+                        <h5>Service 2</h5>
+                        <p>Excavation Price Prediction.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 my-3" onclick="window.location.href='SandFilling';" style="cursor: pointer;">
+                        <h5>Service 3</h5>
+                        <p>Sand filling service charges prediction.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3" onclick="window.location.href='PCC';" style="cursor: pointer;">
+                        <h5>Service 4</h5>
+                        <p>PCC service charges prediction.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" onclick="window.location.href='footing';" style="cursor: pointer;">
+                    <div class="card p-3">
+                        <h5>Service 5</h5>
+                        <p>Footing Concrete service charges prediction.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 " onclick="window.location.href='pedestrial';" style="cursor: pointer;">
+                    <div class="card p-3">
+                        <h5>Service 6</h5>
+                        <p>Pedestrial Columns service charges prediction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="container text-center py-5">
+        <h2 style="color:white;">Contact Us</h2>
+        <p style="color:white">Email: contact@mywebsite.com</p>
+    </section>
+
+</body>
+
+
+{% endblock %}
